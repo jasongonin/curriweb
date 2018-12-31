@@ -1,0 +1,64 @@
+entity Country {
+	countryName String
+}
+
+entity Location {
+	city String,
+	stateProvince String
+}
+
+entity JobHistory {
+	inicial Date required
+    end Date
+}
+entity Department {
+	departmentName String required
+}
+entity Company {
+	companyName String required
+    companyDescription String 
+}
+entity Role {
+	roleName String required
+    roleDescription String 
+}
+entity Hability {
+	habilityName String required
+    habilityDescription String 
+}
+entity HabilityAplication {
+	habilityAplicationName Integer required
+	habilityAplicationLevel Integer required
+    habilityAplicationDescription String 
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+
+relationship OneToOne {
+	Location{country} to Country
+	JobHistory{department} to Department
+    Department{location} to Location
+}
+// defining multiple oneToMany relationships
+relationship OneToMany {
+	JobHistory{company} to Company,
+	JobHistory{role} to Role,
+	Company{department} to Department,
+	Role{habilityAplication} to HabilityAplication
+	HabilityAplication{role} to Hability
+	}
+
+// Set pagination options
+paginate JobHistory, Employee with infinite-scroll
+paginate Job with pagination
+
+
+// Set service options to all except few
+service all with serviceImpl except  Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
