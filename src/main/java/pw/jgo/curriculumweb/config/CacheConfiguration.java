@@ -40,6 +40,15 @@ public class CacheConfiguration {
             cm.createCache(pw.jgo.curriculumweb.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(pw.jgo.curriculumweb.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(pw.jgo.curriculumweb.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            cm.createCache(pw.jgo.curriculumweb.domain.Experience.class.getName(), jcacheConfiguration);
+            cm.createCache(pw.jgo.curriculumweb.domain.Experience.class.getName() + ".companies", jcacheConfiguration);
+            cm.createCache(pw.jgo.curriculumweb.domain.Experience.class.getName() + ".roles", jcacheConfiguration);
+            cm.createCache(pw.jgo.curriculumweb.domain.Experience.class.getName() + ".comptenceAplications", jcacheConfiguration);
+            cm.createCache(pw.jgo.curriculumweb.domain.Company.class.getName(), jcacheConfiguration);
+            cm.createCache(pw.jgo.curriculumweb.domain.Role.class.getName(), jcacheConfiguration);
+            cm.createCache(pw.jgo.curriculumweb.domain.Competence.class.getName(), jcacheConfiguration);
+            cm.createCache(pw.jgo.curriculumweb.domain.CompetenceAplication.class.getName(), jcacheConfiguration);
+            cm.createCache(pw.jgo.curriculumweb.domain.CompetenceAplication.class.getName() + ".comptences", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

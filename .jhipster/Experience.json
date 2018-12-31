@@ -1,0 +1,61 @@
+{
+    "name": "Experience",
+    "fields": [
+        {
+            "fieldName": "inicial",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "end",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "countryName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "experience"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "experience"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "role",
+            "otherEntityName": "role",
+            "otherEntityRelationshipName": "experience"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comptenceAplication",
+            "otherEntityName": "competenceAplication",
+            "otherEntityRelationshipName": "experience"
+        }
+    ],
+    "changelogDate": "20181231120236",
+    "entityTableName": "experience",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
