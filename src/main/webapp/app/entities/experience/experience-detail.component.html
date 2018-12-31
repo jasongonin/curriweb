@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="experience">
+            <h2><span jhiTranslate="curriculumwebApp.experience.detail.title">Experience</span> {{experience.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="curriculumwebApp.experience.inicial">Inicial</span></dt>
+                <dd>
+                    <span>{{experience.inicial}}</span>
+                </dd>
+                <dt><span jhiTranslate="curriculumwebApp.experience.end">End</span></dt>
+                <dd>
+                    <span>{{experience.end}}</span>
+                </dd>
+                <dt><span jhiTranslate="curriculumwebApp.experience.countryName">Country Name</span></dt>
+                <dd>
+                    <span>{{experience.countryName}}</span>
+                </dd>
+                <dt><span jhiTranslate="curriculumwebApp.experience.city">City</span></dt>
+                <dd>
+                    <span>{{experience.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="curriculumwebApp.experience.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="experience.company">
+                        <a [routerLink]="['/company', experience.company?.id, 'view']">{{experience.company?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/experience', experience.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+    "curriculumwebApp": {
+        "competenceAplication": {
+            "home": {
+                "title": "Competence Aplications",
+                "createLabel": "Create a new Competence Aplication",
+                "createOrEditLabel": "Create or edit a Competence Aplication"
+            },
+            "created": "A new Competence Aplication is created with identifier {{ param }}",
+            "updated": "A Competence Aplication is updated with identifier {{ param }}",
+            "deleted": "A Competence Aplication is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Competence Aplication {{ id }}?"
+            },
+            "detail": {
+                "title": "Competence Aplication"
+            },
+            "compApliName": "Comp Apli Name",
+            "compApliLevel": "Comp Apli Level",
+            "compApliDesc": "Comp Apli Desc",
+            "experience": "Experience",
+            "comptence": "Comptence"
+        }
+    }
+}
