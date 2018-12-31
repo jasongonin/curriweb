@@ -1,0 +1,56 @@
+
+entity Experience {
+	inicial LocalDate required,
+    end LocalDate,
+	countryName String,
+	city String
+}
+entity Company {
+	companyName String required,
+    companyDescription String 
+}
+
+entity Role {
+	roleName String required,
+    roleDescription String 
+}
+entity Competence {
+	compName String required,
+    compDesc String 
+}
+entity CompetenceAplication {
+    compApliName Integer required,
+	compApliLevel Integer required,
+    compApliDesc String 
+}
+entity Competence {
+    compName Integer required,
+	compDesc String 
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+
+relationship OneToOne {
+    Experience{company} to Company
+}
+// defining multiple oneToMany relationships
+relationship OneToMany {
+	Experience{company} to Company,
+	Experience{role} to Role,
+	Experience{comptenceAplication} to CompetenceAplication,
+	CompetenceAplication{comptence} to Competence
+	}
+
+// Set pagination options
+paginate Experience with infinite-scroll
+paginate Role, Competence with pagination
+
+
+// Set service options to all except few
+service all with serviceImpl except Experience
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
