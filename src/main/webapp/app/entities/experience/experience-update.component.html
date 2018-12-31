@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-experience-heading" jhiTranslate="curriculumwebApp.experience.home.createOrEditLabel">Create or edit a Experience</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!experience.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="experience.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="curriculumwebApp.experience.inicial" for="field_inicial">Inicial</label>
+                    <div class="input-group">
+                        <input id="field_inicial" type="text" class="form-control" name="inicial" ngbDatepicker  #inicialDp="ngbDatepicker" [(ngModel)]="experience.inicial"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="inicialDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.inicial?.dirty && editForm.controls.inicial?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.inicial?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="curriculumwebApp.experience.end" for="field_end">End</label>
+                    <div class="input-group">
+                        <input id="field_end" type="text" class="form-control" name="end" ngbDatepicker  #endDp="ngbDatepicker" [(ngModel)]="experience.end"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="curriculumwebApp.experience.countryName" for="field_countryName">Country Name</label>
+                    <input type="text" class="form-control" name="countryName" id="field_countryName"
+                        [(ngModel)]="experience.countryName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="curriculumwebApp.experience.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                        [(ngModel)]="experience.city" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="curriculumwebApp.experience.company" for="field_company">Company</label>
+                    <select class="form-control" id="field_company" name="company" [(ngModel)]="experience.company">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="companyOption.id === experience.company?.id ? experience.company : companyOption" *ngFor="let companyOption of companies; trackBy: trackCompanyById">{{companyOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

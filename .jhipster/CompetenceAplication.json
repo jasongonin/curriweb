@@ -1,0 +1,46 @@
+{
+    "name": "CompetenceAplication",
+    "fields": [
+        {
+            "fieldName": "compApliName",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "compApliLevel",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "compApliDesc",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "experience",
+            "otherEntityName": "experience",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comptence",
+            "otherEntityName": "competence",
+            "otherEntityRelationshipName": "competenceAplication"
+        }
+    ],
+    "changelogDate": "20181231120224",
+    "entityTableName": "competence_aplication",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

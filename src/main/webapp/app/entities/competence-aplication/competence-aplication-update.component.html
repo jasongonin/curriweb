@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-competence-aplication-heading" jhiTranslate="curriculumwebApp.competenceAplication.home.createOrEditLabel">Create or edit a Competence Aplication</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!competenceAplication.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="competenceAplication.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="curriculumwebApp.competenceAplication.compApliName" for="field_compApliName">Comp Apli Name</label>
+                    <input type="number" class="form-control" name="compApliName" id="field_compApliName"
+                        [(ngModel)]="competenceAplication.compApliName" required/>
+                    <div [hidden]="!(editForm.controls.compApliName?.dirty && editForm.controls.compApliName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.compApliName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.compApliName?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="curriculumwebApp.competenceAplication.compApliLevel" for="field_compApliLevel">Comp Apli Level</label>
+                    <input type="number" class="form-control" name="compApliLevel" id="field_compApliLevel"
+                        [(ngModel)]="competenceAplication.compApliLevel" required/>
+                    <div [hidden]="!(editForm.controls.compApliLevel?.dirty && editForm.controls.compApliLevel?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.compApliLevel?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.compApliLevel?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="curriculumwebApp.competenceAplication.compApliDesc" for="field_compApliDesc">Comp Apli Desc</label>
+                    <input type="text" class="form-control" name="compApliDesc" id="field_compApliDesc"
+                        [(ngModel)]="competenceAplication.compApliDesc" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="curriculumwebApp.competenceAplication.experience" for="field_experience">Experience</label>
+                    <select class="form-control" id="field_experience" name="experience" [(ngModel)]="competenceAplication.experience" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="experienceOption.id === competenceAplication.experience?.id ? competenceAplication.experience : experienceOption" *ngFor="let experienceOption of experiences; trackBy: trackExperienceById">{{experienceOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
