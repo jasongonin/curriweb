@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="role">
+            <h2><span jhiTranslate="curriculumwebApp.role.detail.title">Role</span> {{role.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="curriculumwebApp.role.roleName">Role Name</span></dt>
+                <dd>
+                    <span>{{role.roleName}}</span>
+                </dd>
+                <dt><span jhiTranslate="curriculumwebApp.role.roleDescription">Role Description</span></dt>
+                <dd>
+                    <span>{{role.roleDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="curriculumwebApp.role.experience">Experience</span></dt>
+                <dd>
+                    <div *ngIf="role.experience">
+                        <a [routerLink]="['/experience', role.experience?.id, 'view']">{{role.experience?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/role', role.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

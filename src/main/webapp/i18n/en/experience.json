@@ -1,0 +1,28 @@
+{
+    "curriculumwebApp": {
+        "experience": {
+            "home": {
+                "title": "Experiences",
+                "createLabel": "Create a new Experience",
+                "createOrEditLabel": "Create or edit a Experience"
+            },
+            "created": "A new Experience is created with identifier {{ param }}",
+            "updated": "A Experience is updated with identifier {{ param }}",
+            "deleted": "A Experience is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Experience {{ id }}?"
+            },
+            "detail": {
+                "title": "Experience"
+            },
+            "inicial": "Inicial",
+            "end": "End",
+            "countryName": "Country Name",
+            "city": "City",
+            "company": "Company",
+            "company": "Company",
+            "role": "Role",
+            "comptenceAplication": "Comptence Aplication"
+        }
+    }
+}
