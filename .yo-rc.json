@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "curriculumweb",
+    "packageName": "pw.jgo.curriculumweb",
+    "packageFolder": "pw/jgo/curriculumweb",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "session",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mariadb",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "fr",
+      "es"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.7.2",
+    "rememberMeKey": "c4fdfe470def6c49881baadd0be630dd55ad4a984e9bee9dbca7b0a043d3ca71e1a7737d8beb0314874efc4073321ea0ad5f",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "jasongonin",
+  "repository-name": "curriweb"
+}
